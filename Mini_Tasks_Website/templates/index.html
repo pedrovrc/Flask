@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Lista de Tarefas{% endblock %}
+{% block content %}
+    <h1>Lista de Tarefas</h1>
+    <a href="{{ url_for('create') }}">Criar nova tarefa</a>
+    <ul>
+    {% for t in tasks %}
+        <li>
+            <strong>{{ t.title }}</strong> - {{ t.content }}
+            {% if t.done %}(concluída){% endif %}
+            <a href="{{ url_for('edit', task_id=t.id) }}">Editar</a>
+
+            <form method="post" action="{{ url_for('delete', task_id=t.id) }}" style="display:inline" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+            <button type="submit">Excluir</button>
+            </form>
+        </li>
+    {% else %}
+        <li>Nenhuma tarefa ainda.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

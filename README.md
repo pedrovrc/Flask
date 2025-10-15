@@ -3,7 +3,7 @@
 Este repositório contém três mini-projetos para aprender Flask, cada um em sua própria pasta:
 
 - `Mini_Task_API/` — Mini API de Tarefas (To-Do) — servidor REST simples com armazenamento em memória e testes.
-- `Mini_Notes_Website/` — (placeholder) site de notas — projeto a ser implementado.
+- `Mini_Tasks_Website/` — (placeholder) site de tarefas — projeto a ser implementado.
 - `Database_and_API/` — (placeholder) exemplos de banco de dados e API — projeto a ser implementado.
 
 Este README explica como rodar e testar o `Mini_Task_API`, que é o projeto inicial implementado.
@@ -84,7 +84,7 @@ Invoke-RestMethod http://127.0.0.1:5000/tasks
 
 ## Próximos passos e ideias de evolução
 
-- Concluir Site de notas - Praticar uso de templates HTML (Jinja2) e formulários.
+- Concluir Site de tarefas - Praticar uso de templates HTML (Jinja2) e formulários.
 - Concluir Banco de Dados + API - Integração das partes anteriores.
 
 ---

@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+nav {
+    margin-bottom: 1rem;
+}
+
+.flashes { list-style: none; padding: 0; }
+.flashes .error { color: red; }
+.flashes .success { color: green; }
