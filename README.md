@@ -6,7 +6,7 @@ Este repositório contém três mini-projetos para aprender Flask, cada um em su
 - `Mini_Tasks_Website/` — Site simples de lista tarefas com formulários e templates HTML (Jinja).
 - `Database_and_API/` — (placeholder) exemplos de banco de dados e API — projeto a ser implementado.
 
-Este README explica como rodar e testar o `Mini_Task_API`, que é o projeto inicial implementado.
+Este README explica como rodar e testar os subprojetos dentro desse repositório.
 
 ---
 
@@ -82,9 +82,55 @@ Invoke-RestMethod http://127.0.0.1:5000/tasks
 
 ---
 
+## Mini_Tasks_Website — visão geral
+
+Estrutura mínima dentro de `Mini_Tasks_Website`:
+
+- `app.py` — factory `create_app()` e rotas para páginas (index, create, edit, delete).
+- `tasks.py` — `TaskStore` em memória com métodos create/get/list/update/delete.
+- `templates/` — `base.html`, `index.html`, `create.html`, `edit.html` (Jinja2 templates).
+- `static/` — CSS e recursos estáticos.
+- `tests/` — testes com `pytest` simulando requisições via `app.test_client()`.
+
+### Como rodar localmente (Windows / Powershell)
+
+1. Abra o PowerShell na pasta do subprojeto (Mini_Tasks_Website)
+
+2. Ative o ambiente virtual criado na raiz do repo (ou crie/ative um aqui):
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+3. Instale dependências:
+
+```powershell
+pip install -r requirements.txt
+```
+
+4. Rodar a aplicação:
+
+```powershell
+$env:FLASK_APP="app:create_app"
+flask run
+```
+
+Abra o navegador em `http://127.0.0.1:5000`.
+
+### Testes (Mini_Tasks_Website)
+
+Se você adicionou a pasta `tests/` dentro do subprojeto, rode os testes assim (na pasta `Mini_Tasks_Website`):
+
+```powershell
+python -m pytest -q
+```
+
+---
+
 ## Próximos passos e ideias de evolução
 
-- Concluir Site de tarefas - Praticar uso de templates HTML (Jinja2) e formulários.
-- Concluir Banco de Dados + API - Integração das partes anteriores.
+- ✅ Concluir API simples de tarefas - Praticar aplicação básica de servidor REST simples com Flask.
+- ✅ Concluir Site de tarefas - Praticar uso de templates HTML (Jinja2) e formulários.
+- Concluir Banco de Dados + API - Integração das partes anteriores com um banco de dados persistente.
 
 ---
