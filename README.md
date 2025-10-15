@@ -23,7 +23,7 @@ O servidor foi mantido propositalmente simples para fins didáticos.
 
 ## Como rodar localmente (Windows / PowerShell)
 
-1. Abra o PowerShell na raiz do repositório (`F:\Programming\Flask`).
+1. Abra o PowerShell na raiz do repositório.
 
 2. Crie e ative um ambiente virtual (recomendado):
 
