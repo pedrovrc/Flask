@@ -4,7 +4,9 @@ Este repositório contém três mini-projetos para aprender Flask, cada um em su
 
 - `Mini_Task_API/` — Mini API de Tarefas (To-Do) — servidor REST simples com armazenamento em memória e testes.
 - `Mini_Tasks_Website/` — Site simples de lista tarefas com formulários e templates HTML (Jinja).
-- `Database_and_API/` — (placeholder) exemplos de banco de dados e API — projeto a ser implementado.
+- `Database_and_API/` — Projeto completo com banco de dados SQLAlchemy, Flask-Migrate, API RESTful e interface web.
+
+---
 
 Este README explica como rodar e testar os subprojetos dentro desse repositório.
 
@@ -127,10 +129,69 @@ python -m pytest -q
 
 ---
 
+## Database_and_API — visão geral
+
+Projeto Flask com arquitetura em camadas, banco de dados SQLAlchemy, Flask-Migrate, API RESTful e interface web.
+
+**Principais arquivos e estrutura:**
+- `app.py`: Factory da aplicação Flask, registro dos blueprints e inicialização do banco/migrações
+- `models.py`: Modelos SQLAlchemy (Task)
+- `repositories.py`: Camada de acesso a dados (CRUD)
+- `services.py`: Regras de negócio e validação
+- `api.py`: Blueprint da API RESTful (`/api/v1/tasks`)
+- `web.py`: Blueprint da interface web (páginas HTML)
+- `config.py`: Configurações (SECRET_KEY, URI do banco)
+- `requirements.txt`: Dependências
+- `migrations/`: Migrações do banco (Alembic)
+- `templates/`: Templates HTML (Jinja2)
+- `tests/`: Testes automatizados com banco em memória
+
+### Como rodar localmente (Windows / PowerShell)
+
+1. Abra o PowerShell na pasta `Database_and_API`.
+
+2. Crie e ative um ambiente virtual (recomendado):
+	```powershell
+	python -m venv .venv
+	.venv\Scripts\Activate.ps1
+	```
+3. Instale as dependências:
+	```powershell
+	pip install -r requirements.txt
+	```
+4. Inicialize as migrações e o banco:
+	```powershell
+	flask db init
+	flask db migrate
+	flask db upgrade
+	```
+5. Rode a aplicação:
+	```powershell
+	python app.py
+	```
+
+### Testes
+
+Execute os testes automatizados:
+```powershell
+pytest
+```
+
+### Endpoints principais
+
+- API: `/api/v1/tasks` (GET, POST, PUT, DELETE)
+- Web: `/` (listar, criar, editar, deletar tarefas)
+
+### Observações
+- Banco padrão: SQLite (`tasks.db`)
+- Para testes, usa SQLite em memória
+- Regras de negócio e validação no `services.py`
+- Transações e erros tratados no repositório
+
 ## Próximos passos e ideias de evolução
 
 - ✅ Concluir API simples de tarefas - Praticar aplicação básica de servidor REST simples com Flask.
 - ✅ Concluir Site de tarefas - Praticar uso de templates HTML (Jinja2) e formulários.
-- Concluir Banco de Dados + API - Integração das partes anteriores com um banco de dados persistente.
+- ✅ Concluir Banco de Dados + API - Integração das partes anteriores com um banco de dados persistente.
 
 ---

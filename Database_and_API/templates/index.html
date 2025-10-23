@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Tarefas{% endblock %}
+{% block content %}
+<h1>Lista de Tarefas</h1>
+<a href="{{ url_for('web.create') }}" class="btn btn-primary mb-3">Nova Tarefa</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ 'Feita' if task.done else 'Pendente' }}</td>
+            <td>
+                <a href="{{ url_for('web.edit', task_id=task.id) }}" class="btn btn-sm btn-warning">Editar</a>
+                <form action="{{ url_for('web.delete', task_id=task.id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Deletar tarefa?');">Deletar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

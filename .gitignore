@@ -1,0 +1,40 @@
+# Ignorar ambientes virtuais
+.venv/
+env/
+
+# Ignorar arquivos de banco de dados
+*.db
+*.sqlite3
+
+# Ignorar arquivos e pastas de cache Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar arquivos temporários e de sistema
+*.log
+*.swp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Ignorar configurações locais e instância Flask
+instance/
+
+# Ignorar arquivos de migração compilados
+migrations/versions/__pycache__/
+
+# Ignorar arquivos de testes gerados
+*/tests/__pycache__/
+
+# Ignorar arquivos de IDE
+.vscode/
+.idea/
+
+# Ignorar arquivos de configuração do Windows
+*.orig
+
+# Permitir pasta de migrações, mas ignorar caches
+!/Database_and_API/migrations/
+!/Mini_Task_API/migrations/
+!/Mini_Tasks_Website/migrations/
